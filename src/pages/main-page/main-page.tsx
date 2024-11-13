@@ -5,7 +5,7 @@ import LastRewiew from '../../components/last-rewiew/last-review';
 import Map from '../../components/map/map';
 import RandomMain from '../../components/random-main/random-main';
 
-function Main() {
+function MainPage() {
   return (
     <>
       <Header />
@@ -20,4 +20,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainPage;

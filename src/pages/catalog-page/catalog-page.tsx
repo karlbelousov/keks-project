@@ -1,5 +1,5 @@
 import BackLink from '../../components/back-link/back-link';
-import Catalog from '../../components/caatalog/catalog';
+import Catalog from '../../components/catalog/catalog';
 import CatalogFilter from '../../components/catalog-filter/catalog-filter';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';

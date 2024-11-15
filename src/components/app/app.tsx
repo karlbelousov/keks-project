@@ -3,6 +3,7 @@ import MainPage from '../../pages/main-page/main-page';
 import { AppRoutes } from '../../const';
 import CatalogPage from '../../pages/catalog-page/catalog-page';
 import ErrorPage from '../../pages/error-page/error-page';
+import FavoritesPage from '../../pages/favorites-page/favorites-page';
 
 function App(): JSX.Element {
   return (
@@ -11,6 +12,7 @@ function App(): JSX.Element {
         <Routes>
           <Route path={AppRoutes.Main} element={<MainPage />} />
           <Route path={AppRoutes.Catalog} element={<CatalogPage />} />
+          <Route path={AppRoutes.Favorites} element={<FavoritesPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

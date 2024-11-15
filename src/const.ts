@@ -1,4 +1,5 @@
 export enum AppRoutes {
   Main ='/',
-  Catalog = '/catalog'
+  Catalog = '/catalog',
+  Favorites = '/favorites'
 }

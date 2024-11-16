@@ -22,3 +22,5 @@ export enum ApiRoute {
   Products = '/products',
   LastReview = '/reviews/getLast'
 }
+
+export const STARS_COUNT = 5;

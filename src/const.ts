@@ -6,3 +6,13 @@ export enum AppRoutes {
   Login = '/login',
   Register = '/register'
 }
+
+export enum AuthorizationStatus {
+  Auth = 'AUTH',
+  NoAuth = 'NO_AUTH',
+  Unknown = 'UNKNOWN',
+}
+
+export enum NameSpace {
+  User = 'USER',
+}

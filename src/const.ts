@@ -15,4 +15,5 @@ export enum AuthorizationStatus {
 
 export enum NameSpace {
   User = 'USER',
+  SiteData = 'SITEDATA'
 }

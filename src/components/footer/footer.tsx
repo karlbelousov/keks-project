@@ -17,9 +17,9 @@ function Footer() {
             <li className="footer__item">
               <a
                 className="footer__social-link"
-                href="#"
+                href="https://vk.com"
                 target="_blank"
-                rel="nofollow noopener"
+                rel="noreferrer"
               >
                 <span className="visually-hidden">Вконтакте</span>
                 <svg width={50} height={50} aria-hidden="true">
@@ -30,9 +30,9 @@ function Footer() {
             <li className="footer__item">
               <a
                 className="footer__social-link"
-                href="#"
+                href="https://web.telegram.org/a/"
                 target="_blank"
-                rel="nofollow noopener"
+                rel="noreferrer"
               >
                 <span className="visually-hidden">Телеграм</span>
                 <svg width={50} height={50} aria-hidden="true">

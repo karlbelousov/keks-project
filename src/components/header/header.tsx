@@ -1,11 +1,14 @@
+import { Link } from 'react-router-dom';
+import { AppRoutes } from '../../const';
+
 function Header() {
   return (
     <header className="header">
       <div className="container">
         <div className="header__inner">
-          <a
+          <Link
             className="header__logo"
-            href="index.html"
+            to={AppRoutes.Main}
             aria-label="Переход на главную"
           >
             <img
@@ -14,20 +17,20 @@ function Header() {
               height={69}
               alt="Кондитерская кекс"
             />
-          </a>
+          </Link>
           <div className="header__buttons">
             <div className="header__btn">
-              <a
+              <Link
                 className="btn btn--third header__link header__link--reg"
-                href="register-page.html"
+                to={AppRoutes.Register}
               >
                 Регистрация
-              </a>
+              </Link>
             </div>
             <div className="header__btn">
-              <a className="btn" href="login-page.html">
+              <Link className="btn" to={AppRoutes.Login}>
                 Войти
-              </a>
+              </Link>
             </div>
           </div>
         </div>

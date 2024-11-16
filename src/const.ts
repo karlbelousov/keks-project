@@ -17,3 +17,8 @@ export enum NameSpace {
   User = 'USER',
   SiteData = 'SITEDATA'
 }
+
+export enum ApiRoute {
+  Products = '/products',
+  LastReview = '/reviews/getLast'
+}

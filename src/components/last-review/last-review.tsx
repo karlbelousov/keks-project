@@ -7,10 +7,6 @@ function LastRewiew() {
   const isLastReviewLoading = useAppSelector(getIsLastReviewLoading);
   const lastReview = useAppSelector(getLastReview);
 
-  if (isLastReviewLoading) {
-    return <Loader />;
-  }
-
   return (
     <section className="last-review">
       <div className="container">

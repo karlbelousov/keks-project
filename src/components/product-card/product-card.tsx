@@ -10,7 +10,7 @@ type ProductCardProps = {
 function ProductCard({product, isBig = false}: ProductCardProps) {
   return (
     <div className={`card-item ${isBig ? 'card-item--big' : ''}`}>
-      <Link className="card-item__img-link" to={AppRoutes.Catalog}>
+      <Link className="card-item__img-link" to={AppRoutes.Product}>
         <div className="card-item__img-wrapper">
           <picture>
             <source
@@ -35,7 +35,7 @@ function ProductCard({product, isBig = false}: ProductCardProps) {
         </svg>
       </button>
       {isBig && <span className='card-item__price'>{product.price}</span>}
-      <Link className="card-item__link" to={AppRoutes.Catalog}>
+      <Link className="card-item__link" to={AppRoutes.Product}>
         <h3 className="card-item__title">
           <span>{product.title}</span>
         </h3>

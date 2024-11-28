@@ -1,96 +1,57 @@
-function Map() {
-  return (
-    <section className="map">
-      <div className="container">
-        <h2 className="map__title">адреса</h2>
-        <div className="map__wrapper" />
-        <ul className="map__addresses">
-          <li className="map__address">
-            <div className="custom-toggle custom-toggle--radio custom-toggle--address">
-              <input
-                type="radio"
-                defaultValue="user-agreement-10"
-                id="user-agreement-id-10"
-                name="user-agreement"
-              />
-              <label
-                className="custom-toggle__label"
-                htmlFor="user-agreement-id-10"
-              >
-                Кондитерская 1
-              </label>
-              <address className="custom-toggle__address">
-                Морской пр. 2А
-                <svg
-                  className="custom-toggle__icon"
-                  width={26}
-                  height={24}
-                  aria-hidden="true"
-                >
-                  <use xlinkHref="#icon-keks-footprint" />
-                </svg>
-              </address>
-            </div>
-          </li>
-          <li className="map__address">
-            <div className="custom-toggle custom-toggle--radio custom-toggle--address">
-              <input
-                type="radio"
-                defaultValue="user-agreement-12"
-                id="user-agreement-id-12"
-                name="user-agreement"
-                defaultChecked
-              />
-              <label
-                className="custom-toggle__label"
-                htmlFor="user-agreement-id-12"
-              >
-                Кондитерская 2
-              </label>
-              <address className="custom-toggle__address">
-                Морской пр. 2А
-                <svg
-                  className="custom-toggle__icon"
-                  width={26}
-                  height={24}
-                  aria-hidden="true"
-                >
-                  <use xlinkHref="#icon-keks-footprint" />
-                </svg>
-              </address>
-            </div>
-          </li>
-          <li className="map__address">
-            <div className="custom-toggle custom-toggle--radio custom-toggle--address">
-              <input
-                type="radio"
-                defaultValue="user-agreement-13"
-                id="user-agreement-id-13"
-                name="user-agreement"
-              />
-              <label
-                className="custom-toggle__label"
-                htmlFor="user-agreement-id-13"
-              >
-                Производство
-              </label>
-              <address className="custom-toggle__address">
-                Морской пр. 2А
-                <svg
-                  className="custom-toggle__icon"
-                  width={26}
-                  height={24}
-                  aria-hidden="true"
-                >
-                  <use xlinkHref="#icon-keks-footprint" />
-                </svg>
-              </address>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-  );
+import { useEffect, useRef } from 'react';
+import useMap from '../../hooks/useMap';
+import { MAP_CENTER } from '../../const';
+import { Icon, Marker} from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import { MapAddress } from '../../types/map-address';
+
+const confectionaryCustomIcon = new Icon({
+  iconUrl: 'img/content/map-marker2.svg',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40]
+});
+
+const productionCustomIcon = new Icon({
+  iconUrl: 'img/content/map-marker1.svg',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40]
+});
+
+type MapProps = {
+  activeMapAddress: MapAddress[];
+}
+
+function Map({activeMapAddress}: MapProps) {
+  const mapRef = useRef(null);
+  const map = useMap(mapRef, MAP_CENTER);
+
+  useEffect(() => {
+    const markers: Marker[] = [];
+
+    if (map) {
+      activeMapAddress.forEach((address) => {
+        const marker = new Marker({
+          lat: address.coords.lat,
+          lng: address.coords.lng
+        });
+
+        marker
+          .setIcon(address.type === 'confectionery' ? confectionaryCustomIcon : productionCustomIcon)
+          .addTo(map);
+        markers.push(marker);
+      });
+
+      return () => {
+        if (map) {
+          markers.forEach((marker) => {
+            map.removeLayer(marker);
+          });
+        }
+      };
+    }
+  }, [map, activeMapAddress]);
+
+  return <div className="map__wrapper" ref={mapRef}/>;
 }
 
 export default Map;
